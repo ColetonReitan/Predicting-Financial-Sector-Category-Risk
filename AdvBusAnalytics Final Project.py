@@ -1,7 +1,27 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.feature_selection import SelectKBest, f_regression
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor
+from scipy.sparse import hstack
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import numpy as np
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import cross_val_score
+import xgboost as xgb
+
+
+
 ! gdown 1r3jZglYXj3Xi_v4I--86fpzLoqFk3PVA
 ! gdown 1_2aTbleEh-kRocoEgHjaVsjYrO9jP1Os
 
-import pandas as pd
 df_train = pd.read_parquet('20231124_Financial_Risk_Project_train.parquet')
 df_test = pd.read_parquet('20231124_Financial_Risk_Project_test_public.parquet')
 
@@ -14,12 +34,6 @@ df_train.shape, df_test.shape
 2. Jordan Adelphi. (2023). Navigating Financial Instability (Regression). Kaggle. https://kaggle.com/competitions/navigating-financial-instability-regression
 
 
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import accuracy_score, classification_report
-
 #EDA of Financial Sector
 
 
@@ -28,9 +42,6 @@ from sklearn.metrics import accuracy_score, classification_report
 print(df_train.info())
 print(df_train.describe())
 print(df_train.head())
-
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 # Visualize the distribution of the target variable
 sns.countplot(x='FinancialSector', data=df_train)
@@ -44,12 +55,6 @@ plt.show()
 
 """Feature Selection"""
 
-import pandas as pd
-import numpy as np
-from sklearn.feature_selection import SelectKBest, f_regression
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestRegressor
 
 # Assuming df_train is your training dataset
 
@@ -110,22 +115,17 @@ X_train = df_train[selected_features]
 y_train = df_train['FinancialSector']
 X_test = df_test[selected_features]
 
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Text feature processing
 vectorizer = TfidfVectorizer(max_features=5000, stop_words='english')
 X_train_text = vectorizer.fit_transform(X_train['businessDescription'])
 X_test_text = vectorizer.transform(X_test['businessDescription'])
 
-from scipy.sparse import hstack
 
 # Combine features
 X_train_combined = hstack([X_train_text, X_train.drop('businessDescription', axis=1)])
 X_test_combined = hstack([X_test_text, X_test.drop('businessDescription', axis=1)])
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
 
 # Split the training data for validation
 X_train_split, X_val_split, y_train_split, y_val_split = train_test_split(X_train_combined, y_train, test_size=0.2, random_state=42)
@@ -153,7 +153,6 @@ df_test_dropcall.to_csv('Classification_try2.csv', index=True)
 Using Grid Search
 """
 
-from sklearn.model_selection import GridSearchCV
 
 # Define the parameter grid
 param_grid = {
@@ -193,7 +192,6 @@ df_test_dropcall.to_csv('Classification_gridsearch.csv', index=True)
 
 """Model Assessment"""
 
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 # the true labels for the test set in y_test
 y_test = df_test['FinancialSector']
@@ -235,12 +233,6 @@ sns.heatmap(df_train.corr()[['FinancialRisk']].sort_values(by='FinancialRisk', a
 plt.title('Correlation with FinancialRisk')
 plt.show()
 
-import pandas as pd
-import numpy as np
-from sklearn.feature_selection import SelectKBest, f_regression
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestRegressor
 
 # Assuming df_train is your training dataset
 
@@ -291,13 +283,6 @@ print(feature_importance_df)
 
 """Running Regression with RandomForest"""
 
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.model_selection import cross_val_score
 
 # Assuming df_train contains the target variable 'FinancialRisk'
 # and df_test is missing the 'FinancialRisk' column
@@ -357,14 +342,6 @@ df_test_dropcall = df_test.drop('call_transcript', axis=1)
 df_test_dropcall.to_csv('Regression_Random_Forest.csv', index=True)
 
 """Running Regression with XGboost"""
-
-import xgboost as xgb
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_squared_error
 
 # Assuming df_train contains the target variable 'FinancialRisk'
 # and df_test is missing the 'FinancialRisk' column
@@ -428,8 +405,6 @@ df_test_dropcall.to_csv('Regression_XGBoost.csv', index=True)
 
 """Fine tuning XGBoost HyperParameters"""
 
-import xgboost as xgb
-from sklearn.model_selection import GridSearchCV
 
 # Step 4: Model Selection
 model = xgb.XGBRegressor(random_state=42)
@@ -484,8 +459,6 @@ plt.title('Feature Importance')
 plt.show()
 
 feature_importance_df.head()
-
-import matplotlib.pyplot as plt
 
 # Assuming y_train is a pandas Series or NumPy array
 actual_values = y_train
