@@ -1,4 +1,10 @@
+An Advanced Business Analytics group final project, lead by myself with 2 others in December 2023
 
+Completed fully within Python
+
+
+
+Project Description: 
 Introduction:
 
 In March 2023, as a fresh graduate, you've embarked on an exciting journey with the Federal Reserve (the Fed). The Fed's crucial task is to maintain the overall stability of the financial system, including the regulation of key non-bank financial institutions.
