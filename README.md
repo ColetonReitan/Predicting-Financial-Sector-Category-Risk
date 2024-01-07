@@ -2,7 +2,7 @@ An Advanced Business Analytics group final project, lead by myself with 2 others
 
 Completed fully within Python
 
-
+This was also a Kaggle Competition set up by the professor between two of the classes he was teaching - I had the model with the best regression outcomes of the two classes. 
 
 Project Description-
 
