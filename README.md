@@ -1,5 +1,5 @@
 # Predicting Financial Sector Category and Risk
-This was a semester long project conducted in the fall of 2023. This analysis includes data ETL, EDA & involves regression and classification machine learning models.
+This was a semester long project conducted in the fall of 2023. This analysis includes data loading, EDA, & involves a classification NLP and regression machine learning models that have hyperparameter tuning applied.
 Completed fully within python.  
 
 This was a Kaggle Competition style project set up by the professor between two of the classes he was teaching - my regression model returned the best score.  
@@ -29,8 +29,22 @@ The pdf of the presentation for this project can be found within this repository
 * Feature Importance/Explainability 
 * Conclusion 
 
-## Data Description
+## Methodology
+This project was broken down into two parts; a classification of financial sector and prediction analysis of financial risk.   
 
+### Classification Model to Determine Financial Sector
+**Feature Selection**: A randomforestregressor was used to determine 5 of the most important features.  
+**Model Selection**: A vectorizer was used to convert the text features (such as company description) into scores that our model could read numerically.
+A randomforestclassifier model was used to determine the classification of financial sector.   
+**Hyperparameter Tuning**: Gridsearch was then used for hyper parameter tuning 
+
+### Regression Model to Predict Financial Risk
+**Feature Selection**: A randomforestregressor was also used to determine 5 of the most important features, as well as a heatmap analysis. 
+**Model Selection**: There were no text features for this portion. A randomforestregressor and XGBoost model were both examined. The XGBoost Model gave better results. 
+**Hyperparameter Tuning**: Gridsearch was also used as hyperparameter tuning
+
+## Data Description
+The dataset being used contains 73 features across 500 companies.
 Here's a data description for your dataset:
 
 * url: The web address providing earnings call transcript
