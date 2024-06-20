@@ -29,19 +29,21 @@ The pdf of the presentation for this project can be found within this repository
 * Feature Importance/Explainability 
 * Conclusion 
 
-## Methodology
+## Modeling Methods
 This project was broken down into two parts; a classification of financial sector and prediction analysis of financial risk.   
 
 ### Classification Model to Determine Financial Sector
 **Feature Selection**: A randomforestregressor was used to determine 5 of the most important features.  
 **Model Selection**: A vectorizer was used to convert the text features (such as company description) into scores that our model could read numerically.
 A randomforestclassifier model was used to determine the classification of financial sector.   
-**Hyperparameter Tuning**: Gridsearch was then used for hyper parameter tuning 
+**Hyperparameter Tuning**: Gridsearch was then used for hyper parameter tuning   
+**Model Assesment**: For the classification model, accuracy, F1 score, & precision/recall were all used to understand the model's accountability. 
 
 ### Regression Model to Predict Financial Risk
-**Feature Selection**: A randomforestregressor was also used to determine 5 of the most important features, as well as a heatmap analysis. 
-**Model Selection**: There were no text features for this portion. A randomforestregressor and XGBoost model were both examined. The XGBoost Model gave better results. 
-**Hyperparameter Tuning**: Gridsearch was also used as hyperparameter tuning
+**Feature Selection**: A randomforestregressor was also used to determine 5 of the most important features, as well as a heatmap analysis.   
+**Model Selection**: There were no text features for this portion. A randomforestregressor and XGBoost model were both examined. The XGBoost Model gave better results.   
+**Hyperparameter Tuning**: Gridsearch was also used as hyperparameter tuning  
+**Model Assesment**: Mean square error, Rsquared, & cross validated Rsquared scores were used to understand the model's accountability. 
 
 ## Data Description
 The dataset being used contains 73 features across 500 companies.
