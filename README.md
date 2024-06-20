@@ -1,50 +1,35 @@
-An Advanced Business Analytics group final project, lead by myself with 2 others in December 2023
+# Predicting Financial Sector Category and Risk
+This was a semester long project conducted in the fall of 2023. This analysis includes data ETL, EDA & involves regression and classification machine learning models.
+Completed fully within python.  
 
-Completed fully within Python
+This was a Kaggle Competition style project set up by the professor between two of the classes he was teaching - my regression model returned the best score.  
 
-This was also a Kaggle Competition set up by the professor between two of the classes he was teaching - I had the model with the best regression outcomes of the two classes. 
+## Project Overview
 
-Project Description-
-
-Introduction:
-
-In March 2023, as a fresh graduate, you've embarked on an exciting journey with the Federal Reserve (the Fed). The Fed's crucial task is to maintain the overall stability of the financial system, including the regulation of key non-bank financial institutions.
-
-SVB Collapse - March 2023:
-
-Bank Run and Failure: On March 10, 2023, Silicon Valley Bank (SVB) collapsed after a bank run, following its announcement to sell assets and raise funds due to significant losses. This led to a huge withdrawal of customer funds, and the California Department of Financial Protection and Innovation subsequently placed SVB under the FDIC's receivership.
-
-Background: Founded in 1983, SVB, a major player in the tech sector, saw its deposits skyrocket from \$62 billion in 2020 to \$124 billion in 2021. The bank's strategy to invest in long-term Treasury bonds backfired as rising interest rates led to a drop in bond values, causing substantial unrealized losses.
-
-Impact: The collapse heavily impacted startups and larger tech firms worldwide, disrupting access to funds and affecting various industries.
-Regulatory and Risk Management Issues: Critiques arose over the bank's risk management, citing reduced stress testing under 2018's Economic Growth, Regulatory Relief, and Consumer Protection Act. A 2021 Federal Reserve review highlighted deficiencies in SVB's risk management.
-
-Recovery Efforts: The FDIC, supported by the Treasury, insured all SVB deposits to mitigate broader financial instability. SVB's assets were transferred to Silicon Valley Bridge Bank, N.A., and later acquired by First Citizens BancShares.
-
-Your Task at the Fed:
-
-Using AI/ML tools, your assignment is to identify financial firms at risk.
-
-* Exploratory Data Analysis: You have gathered data on publicly traded companies, some of which operate in the Financial Sector, while others do not.
-
-* Classification Task: The initial step is to categorize these companies to determine which are Financial firms under the Fed's supervision. In the training set, a human expert has already classified firms as 'FinancialSector' or not. This classification is missing in the test set, and your objective is to predict this categorization for the test set and automate the process for future datasets.
-
-* Risk Prediction: Subsequently, your aim is to predict 'FinancialRisk'. This involves identifying firms not in the Financial Sector as zero risk and assigning a risk score (with 1 being the highest) to firms within the Financial Sector, based on the manual calculations by a human expert in the training set. Your goal is to predict this for the test set and automate the process for future assessments.
-
-* Presentation:
-  * Introduction
-  * EDA
-  * Feature selection
-  * Model Selection
-    * Hyper-Parameter tuning
-    * Model variance vs bias
-  * Final model
-  * Feature Importance/Explainability
-  * Conclusion
+This assignment is critical for maintaining the stability of the financial markets, especially in the aftermath of significant events like the SVB collapse. 
+The aim of this project is to use AI/ML tools to identitfy financial firms at risk of failure. The project is broken down into 3 parts: 
 
 
+**Exploratory Data Analysis**: You have gathered data on publicly traded companies, some of which operate in the Financial Sector, while others do not.
 
-This assignment is critical for maintaining the stability of the financial markets, especially in the aftermath of significant events like the SVB collapse.
+**Classification Task**: The initial step is to categorize these companies to determine which are Financial firms under the Fed's supervision. In the training set, a human expert has already classified firms as 'FinancialSector' or not. This classification is missing in the test set, and your objective is to predict this categorization for the test set and automate the process for future datasets.
+
+**Risk Prediction**: Subsequently, your aim is to predict 'FinancialRisk'. This involves identifying firms not in the Financial Sector as zero risk and assigning a risk score (with 1 being the highest) to firms within the Financial Sector, based on the manual calculations by a human expert in the training set. Your goal is to predict this for the test set and automate the process for future assessments.
+
+The pdf of the presentation for this project can be found within this repository and follows as shown:  
+
+**Presentation**: 
+* Introduction 
+* EDA 
+* Feature selection 
+* Model Selection 
+   * Hyper-Parameter tuning 
+   * Model variance vs bias 
+* Final model 
+* Feature Importance/Explainability 
+* Conclusion 
+
+## Data Description
 
 Here's a data description for your dataset:
 
